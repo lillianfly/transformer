@@ -72,6 +72,7 @@ def prepro(hp):
     _write(prepro_test1, "iwslt2016/prepro/test.de")
     _write(prepro_test2, "iwslt2016/prepro/test.en")
 
+# sentencepiece  google开源的自然语言处理工具包。训练分词
     logging.info("# Train a joint BPE model with sentencepiece")
     os.makedirs("iwslt2016/segmented", exist_ok=True)
     train = '--input=iwslt2016/prepro/train --pad_id=0 --unk_id=1 \
@@ -103,6 +104,7 @@ def prepro(hp):
     print("eval1:", open("iwslt2016/segmented/eval.de.bpe", 'r').readline())
     print("eval2:", open("iwslt2016/segmented/eval.en.bpe", 'r').readline())
     print("test1:", open("iwslt2016/segmented/test.de.bpe", 'r').readline())
+
 
 if __name__ == '__main__':
     hparams = Hparams()
