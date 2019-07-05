@@ -260,7 +260,8 @@ def label_smoothing(inputs, epsilon=0.1):
     '''
     V = inputs.get_shape().as_list()[-1] # number of channels
     return ((1-epsilon) * inputs) + (epsilon / V)
-    
+
+# 给定跟进位置计算好的position_enc，相当于wordembedding矩阵
 def positional_encoding(inputs,
                         maxlen,
                         masking=True,
